@@ -2,13 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>消息插入动画</title>
+    <style>
+        .box {
+            background-color: blue;
+            width: 100px;
+            height: 20px;
+            margin-top: 20px;
+            animation: animation 0.5s ease;
+        }
+
+        @keyframes animation {
+            from {
+                transform: translate(-100%);
+            }
+            to {
+                transform: translate(0);
+            }
+        }
+    </style>
 </head>
-<script>
-    document.getElementById();
-</script>
+
 <body>
-<div>23131</div>
-<div>dwad1点点滴滴3</div>
+<div class="box">@Pumpkin_</div>
+<div class="box">@Pumpkin_</div>
+<div class="box">@Pumpkin_</div>
+<div class="box">@Pumpkin_</div>
+<div class="box">@Pumpkin_</div>
+<button id="addBtn">add div</button>
+
+<script>
+    const addBtn = document.getElementById('addBtn');
+    addBtn.addEventListener("click", function () {
+        // 1.创建div
+        const newDiv = document.createElement("div");
+        // 2.给div赋样式和值
+        newDiv.classList.add("box");
+        newDiv.textContent = "123"
+        // 3.获取所有元素的第一个元素
+        const boxList = document.querySelectorAll(".box");
+        const firstDiv = boxList[0]
+        // 4.在第一个元素前面添加这个div
+        firstDiv.insertAdjacentElement("beforebegin", newDiv);
+    })
+</script>
 </body>
 </html>
